@@ -60,18 +60,23 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeatherData(cityName: string) {
-    this.weatherService.getWeatherData(this.formatLocation(cityName, true)).subscribe({
-      next: (resp: any) => {
-        this.weatherData.length = 0;
-        this.weatherData.push(resp);
-        console.log(this.weatherData[0]);
-      },
-    });
+    this.weatherService
+      .getWeatherData(this.formatLocation(cityName, true))
+      .subscribe({
+        next: (resp: any) => {
+          this.weatherData.length = 0;
+          this.weatherData.push(resp);
+          console.log(this.weatherData[0]);
+        },
+      });
   }
 
   formatLocation(city: string, trigger: boolean): string {
     return (
-      (city ? city : this.city) + ', ' + this.state + (!trigger ? '' : ', ' + this.country)
+      (city ? city : this.city) +
+      ', ' +
+      this.state +
+      (!trigger ? '' : ', ' + this.country)
     );
   }
 }
