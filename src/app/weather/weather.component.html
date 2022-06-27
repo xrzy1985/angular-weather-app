@@ -1,3 +1,9 @@
+<div>
+  <form>
+    <input type="text" placeholder="Ex. Atlanta, Ga">
+  </form>
+</div>
+
 <div class="container" *ngIf="weatherData[0]">
     <div [ngStyle]="{'background-color': weatherData[0].main.temp > 78 ? '#F28218' : '#1877F2'}" class="top">
       <!-- <img style="width: 100%; height: 100%;" src="../assets/hot.jpg" alt="hot" *ngIf="temperature >= 70">
