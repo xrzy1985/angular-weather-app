@@ -7,7 +7,7 @@
           {{ formatLocation(false) }}
         </div>
         <div class="temperature">
-          {{ temperature | number: '1.0-0' }} {{celsiusOrFahrenheit}}
+          {{ weatherData[0].main.temp | number: '1.0-0' }} {{celsiusOrFahrenheit}}
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
             <span>Low</span>
           </div>
           <div class="info-block-value">
-            {{ min | number: '1.0-0' }} {{celsiusOrFahrenheit}}
+            {{ weatherData[0].main.tempmin | number: '1.0-0' }} {{celsiusOrFahrenheit}}
           </div>
         </div>
         <div class="info-block">
@@ -32,7 +32,7 @@
             <span>High</span>
           </div>
           <div class="info-block-value">
-            {{ max | number: '1.0-0' }} {{celsiusOrFahrenheit}}
+            {{ weatherData[0].main.temp_max | number: '1.0-0' }} {{celsiusOrFahrenheit}}
           </div>
         </div>
         <div class="info-block">
@@ -41,7 +41,7 @@
             <span>Humidity</span>
           </div>
           <div class="info-block-value">
-            {{humidity}}
+            {{weatherData[0].main.humidity}}
           </div>
         </div>
         <div class="info-block">
@@ -50,7 +50,7 @@
             <span>Wind Speed</span>
           </div>
           <div class="info-block-value">
-            {{windSpeed}}
+            {{weatherData[0].wind.speed}}
           </div>
         </div>
       </div>
