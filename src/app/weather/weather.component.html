@@ -16,14 +16,14 @@
         {{title}}
       </div>
       <div class="weather-info-container">
-        <!-- component, weather-widget -> params: (src: string, alt: string, label: string, detailsToDisplay: string) -->
+        <!-- create component, weather-widget -> params: (src: string, alt: string, label: string, detailsToDisplay: string) -->
         <div class="info-block">
           <div class="info-block-label">
             <img src="../assets/min.png" alt="min-temperature">
             <span>Low</span>
           </div>
           <div class="info-block-value">
-            {{ weatherData[0].main.tempmin | number: '1.0-0' }} {{celsiusOrFahrenheit}}
+            {{ weatherData[0].main.temp_min | number: '1.0-0' }} {{celsiusOrFahrenheit}}
           </div>
         </div>
         <div class="info-block">
@@ -41,7 +41,7 @@
             <span>Humidity</span>
           </div>
           <div class="info-block-value">
-            {{weatherData[0].main.humidity}}
+            {{weatherData[0].main.humidity}} %
           </div>
         </div>
         <div class="info-block">
@@ -50,7 +50,7 @@
             <span>Wind Speed</span>
           </div>
           <div class="info-block-value">
-            {{weatherData[0].wind.speed}}
+            {{weatherData[0].wind.speed}} mph
           </div>
         </div>
       </div>
