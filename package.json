@@ -1,6 +1,7 @@
 {
   "name": "weather",
   "version": "0.0.0",
+  "homepage": "https://crzy1985.github.io/angular-weather-app",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
