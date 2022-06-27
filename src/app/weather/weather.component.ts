@@ -50,18 +50,18 @@ export class WeatherComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.weatherService
-      .getWeatherData(this.formatLocation(true))
-      .subscribe({
-        next: (resp: any) => {
-          this.weatherData.length = 0;
-          this.weatherData.push(resp);
-          console.log(this.weatherData[0]);
-        },
-      });
+    this.weatherService.getWeatherData(this.formatLocation(true)).subscribe({
+      next: (resp: any) => {
+        this.weatherData.length = 0;
+        this.weatherData.push(resp);
+        console.log(this.weatherData[0]);
+      },
+    });
   }
 
   formatLocation(trigger: boolean): string {
-    return this.city + ', ' + this.state + (!trigger ? '' : ', ' + this.country)
+    return (
+      this.city + ', ' + this.state + (!trigger ? '' : ', ' + this.country)
+    );
   }
 }

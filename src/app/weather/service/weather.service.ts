@@ -8,8 +8,7 @@ import { WeatherData } from '../model/weather.model';
   providedIn: 'root',
 })
 export class WeatherService {
-
-  constructor(private http: HttpClient ) {}
+  constructor(private http: HttpClient) {}
 
   getWeatherData(location: string): Observable<any> {
     return this.http.get(environment.WEATHER.WEATHER_API_BASE_URL, {
