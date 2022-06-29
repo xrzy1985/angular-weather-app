@@ -1,13 +1,19 @@
 <div class="container" *ngIf="weatherData[0]">
     <div [ngStyle]="{'background-color': weatherData[0].main.temp > 78 ? '#F28218' : '#1877F2'}" class="top">
+      <br>
+      <div class="search">
+        <form #form="ngForm" (submit)="onSubmit(city)">
+          <input type="text" placeholder="Search by city (Ex. Atlanta, Ga)" name="cityName" [(ngModel)]="cityName">
+        </form>
+      </div>
       <!-- <img style="width: 100%; height: 100%;" src="../assets/hot.jpg" alt="hot" *ngIf="temperature >= 70">
       <img style="width: 100%; height: 100%;" src="../assets//cold.jpg" alt="cold" *ngIf="temperature < 70"> -->
       <div class="weather-data">
         <div class="location">
-          {{ formatLocation(false) }}
+          {{ cityName ? cityName : formatLocation('', false) }}
         </div>
         <div class="temperature">
-          {{ temperature | number: '1.0-0' }} {{celsiusOrFahrenheit}}
+          {{ weatherData[0].main.temp | number: '1.0-0' }} {{celsiusOrFahrenheit}}
         </div>
       </div>
     </div>
@@ -16,14 +22,14 @@
         {{title}}
       </div>
       <div class="weather-info-container">
-        <!-- component, weather-widget -> params: (src: string, alt: string, label: string, detailsToDisplay: string) -->
+        <!-- create component, weather-widget -> params: (src: string, alt: string, label: string, detailsToDisplay: string) -->
         <div class="info-block">
           <div class="info-block-label">
             <img src="../assets/min.png" alt="min-temperature">
             <span>Low</span>
           </div>
           <div class="info-block-value">
-            {{ min | number: '1.0-0' }} {{celsiusOrFahrenheit}}
+            {{ weatherData[0].main.temp_min | number: '1.0-0' }} {{celsiusOrFahrenheit}}
           </div>
         </div>
         <div class="info-block">
@@ -32,7 +38,7 @@
             <span>High</span>
           </div>
           <div class="info-block-value">
-            {{ max | number: '1.0-0' }} {{celsiusOrFahrenheit}}
+            {{ weatherData[0].main.temp_max | number: '1.0-0' }} {{celsiusOrFahrenheit}}
           </div>
         </div>
         <div class="info-block">
@@ -41,7 +47,7 @@
             <span>Humidity</span>
           </div>
           <div class="info-block-value">
-            {{humidity}}
+            {{weatherData[0].main.humidity}} %
           </div>
         </div>
         <div class="info-block">
@@ -50,14 +56,14 @@
             <span>Wind Speed</span>
           </div>
           <div class="info-block-value">
-            {{windSpeed}}
+            {{weatherData[0].wind.speed}} mph
           </div>
         </div>
       </div>
     </div>
   </div>
   <!-- NO WEATHER DATA YET -->
-  <div class="container" *ngIf="!weatherData">
+  <div class="container" *ngIf="!weatherData[0]">
     <div [ngStyle]="{'background-color': '#1877F2'}" class="top">
       <!-- <img style="width: 100%; height: 100%;" src="../assets/hot.jpg" alt="hot" *ngIf="temperature >= 70">
       <img style="width: 100%; height: 100%;" src="../assets//cold.jpg" alt="cold" *ngIf="temperature < 70"> -->

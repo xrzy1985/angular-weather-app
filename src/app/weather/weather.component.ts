@@ -49,9 +49,19 @@ export class WeatherComponent implements OnInit {
     }
   }
 
+  cityName: string = '';
+
   ngOnInit(): void {
+    this.getWeatherData(this.formatLocation(this.city, true));
+  }
+
+  onSubmit(cityName: string) {
+    this.getWeatherData(this.cityName);
+  }
+
+  getWeatherData(cityName: string) {
     this.weatherService
-      .getWeatherData(this.formatLocation(true))
+      .getWeatherData(this.formatLocation(cityName, true))
       .subscribe({
         next: (resp: any) => {
           this.weatherData.length = 0;
@@ -61,7 +71,12 @@ export class WeatherComponent implements OnInit {
       });
   }
 
-  formatLocation(trigger: boolean): string {
-    return this.city + ', ' + this.state + (!trigger ? '' : ', ' + this.country)
+  formatLocation(city: string, trigger: boolean): string {
+    return (
+      (city ? city : this.city) +
+      ', ' +
+      this.state +
+      (!trigger ? '' : ', ' + this.country)
+    );
   }
 }

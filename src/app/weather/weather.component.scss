@@ -1,3 +1,20 @@
+.search {
+    margin: 0 0 1em 0;
+    text-align: center;
+}
+
+.search input {
+    background-color: lightgray;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 1em;
+    color: black;
+    font-size: 0.8em;
+    text-align: center;
+    width: calc(100% - 40px);
+}
+
 .container {
     width: calc(100vw - 10vw);
     height: calc(100vh - 10vh);
@@ -56,6 +73,7 @@
     color: white;
     justify-content: center;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .weather-info-container {
