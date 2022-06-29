@@ -32,6 +32,9 @@ MIT
 @angular/flex-layout
 MIT
 
+@angular/forms
+MIT
+
 @angular/platform-browser
 MIT
 
