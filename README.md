@@ -1,5 +1,11 @@
 # Weather
 
+## Todo
+WA-001: clean up HTML
+WA-002: clean up service files
+WA-003: Add testing framework; jasmine and karma
+WA-004: Setup a few initial tests w/testing framework
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
 ## Development server
